@@ -1,9 +1,7 @@
 pandas
-Flask
 tornado
 simplejson
 requests
 datetime
 bokeh
 pip
-gunicorn
