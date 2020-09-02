@@ -16,6 +16,9 @@ from bokeh.themes import Theme
 
 # flask not working well with bokeh server
 # cannot figure it out within limited time
+# as a result, I have to give up in the end
+# the main issue was that the html displays correctly on localhost:8000
+# but does not display at all on heroku
 
 # app = Flask(__name__)
 
@@ -64,12 +67,11 @@ def get_graph(dataframe):
     p.title.text_font = "Times"
     p.title.text_font_size = "20px"
 
-    # add a line renderer
     p.line(dataframe['index'], dataframe['Close'], line_width=2)
 
     p.add_tools(HoverTool(
         tooltips=[
-            ( 'Date',   '@x{%F}'     ), # does not seem to show the correct format
+            ( 'Date',   '@x{%F}'     ),
             ( 'Close',  '$@y{%0.2f}' ),
         ],
 
@@ -78,7 +80,6 @@ def get_graph(dataframe):
             '@y'     : 'printf',
         },
 
-        # display a tooltip whenever the cursor is vertically in line with a glyph
         mode='vline'
     ))
     curdoc().add_root(column(p, text_input))
