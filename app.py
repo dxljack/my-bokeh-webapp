@@ -6,7 +6,7 @@ import simplejson as json
 import requests
 import datetime
 
-from bokeh.embed import server_document
+from bokeh.embed import server_document, components 
 from bokeh.layouts import column
 from bokeh.models import ColumnDataSource, HoverTool, TextInput, CustomJS
 from bokeh.io import curdoc
@@ -89,7 +89,6 @@ def bkapp(doc):
 @app.route('/', methods=['GET'])
 def bkapp_page():
     script = server_document('http://localhost:5006/bkapp')
-    # script = server_document()
     return render_template("embed.html", script=script, template="Flask")
 
 
