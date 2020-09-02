@@ -41,8 +41,6 @@ def bkapp(doc):
         response = requests.get(API_URL, data)
         response_json = response.json()
 
-        print('JSON: ', response_json)
-
         df = pd.DataFrame.from_dict(response_json['Time Series (Daily)'], orient= 'index').sort_index(axis=1)
         df = df.rename(columns={ '1. open': 'Open', '2. high': 'High', '3. low': 'Low', '4. close': 'Close', '5. volume': 'Volume'})
         df = df[[ 'Open', 'High', 'Low', 'Close', 'Volume']]
