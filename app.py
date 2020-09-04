@@ -60,7 +60,7 @@ def get_graph(dataframe):
     p = figure(plot_width=800 ,plot_height=800, x_axis_type="datetime")
     p.background_fill_color="#f5f5f5"
     p.grid.grid_line_color="white"
-    p.xaxis.axis_label = "Dates of August 2020"
+    p.xaxis.axis_label = "Date and Month of 2020"
     p.yaxis.axis_label = "Closing Price"
     p.axis.axis_line_color = None
     p.title.text = 'Monthly Stock Data of ' + text_input.value.upper()
