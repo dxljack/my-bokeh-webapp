@@ -50,7 +50,7 @@ def get_data(symbol):
     df = df[[ 'Open', 'High', 'Low', 'Close', 'Volume']]
     df.reset_index(inplace=True)
     df['index'] = pd.to_datetime(df['index'])
-    mask = (df['index'] >= '2020-07-01') & (df['index'] <= '2020-08-31')
+    mask = (df['index'] >= '2020-01-01')
     df1 = df.loc[mask]
     return df1
 
